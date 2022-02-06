@@ -14,11 +14,11 @@
 \usepackage{graphicx}
 \usepackage[colorlinks=true, allcolors=blue]{hyperref}
 \usepackage{amsthm}
+\usepackage{bm}
 
-\renewcommand{\proofname}{\textbf{解答}}
 
 \title{『多変量解析入門』　演習問題}
-\author{Taro Masuda}
+\author{Taro Masuda @ml\_taro}
 
 \begin{document}
 \maketitle
@@ -26,6 +26,8 @@
 \section{はじめに}
 このPDFでは，小西貞則 著『多変量解析入門　線形から非線形へ』(岩波書店，2010)の解答を記していきます．
 公式なものではなくあくまで個人として公開しているため，誤りがある可能性があります．正確性についての保証はできない旨，予めご了承ください．
+
+なお，著作権へ配慮し，問題文については割愛させていただきます．
 
 \section{第2章}
 
@@ -45,5 +47,15 @@
 \iff \sum_{i=1}^{n} x_i y_i =  \beta_0 \sum_{i=1}^{n} x_i + \beta_1 \sum_{i=1}^{n} x_i^2.
 \end{equation}
 \end{proof}
+
+\subsection{問2.2}
+誤差の2乗和を最小化したいので，
+\begin{equation}
+S(\bm{\beta}) = \bm{\varepsilon}^{\mathsf{T}} \bm{\varepsilon} = (\bm{y} - X \bm{\beta})^{\mathsf{T}} (\bm{y} - X \bm{\beta})
+\end{equation}
+を$\bm{\beta}$について微分して
+\begin{equation}
+- 2 X^{\mathsf{T}} \bm{y} + 2 X^{\mathsf{T}}X \bm{\beta} = \bm{0}. 
+\end{equation}\square
 
 \end{document}
