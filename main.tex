@@ -17,7 +17,7 @@
 \usepackage{bm}
 
 
-\title{『多変量解析入門』　演習問題 解答}
+\title{『多変量解析入門』　演習問題　解答}
 \author{Taro Masuda @ml\_taro}
 
 \begin{document}
@@ -56,6 +56,21 @@ S(\bm{\beta}) = \bm{\varepsilon}^{\mathsf{T}} \bm{\varepsilon} = (\bm{y} - X \bm
 を$\bm{\beta}$について微分して
 \begin{equation}
 - 2 X^{\mathsf{T}} \bm{y} + 2 X^{\mathsf{T}}X \bm{\beta} = \bm{0}. 
-\end{equation}\square
+\end{equation}
+
+\subsection{問2.3}
+尤度関数は
+\begin{equation}
+L(\bm{\beta}, \sigma^2) = \frac{1}{(2 \pi \sigma^2)^{n/2}} \exp \left[ -\frac{1}{2 \sigma^2} (\bm{y} - X \bm{\beta})^{\mathsf{T}} (\bm{y} - X \bm{\beta}) \right]
+\end{equation}
+となり，これの対数をとると
+\begin{equation}
+\log L(\bm{\beta}, \sigma^2) = - \frac{n}{2} \log (2 \pi \sigma^2)  -\frac{1}{2 \sigma^2} (\bm{y} - X \bm{\beta})^{\mathsf{T}} (\bm{y} - X \bm{\beta}) .
+\end{equation}
+これを$\bm{\beta}$について微分すると
+\begin{equation}
+- 2 X^{\mathsf{T}} \bm{y} + 2 X^{\mathsf{T}}X \bm{\beta} = \bm{0}
+\iff \hat{\bm{\beta}} = (X^{\mathsf{T}} X)^{-1} X^{\mathsf{T}} \bm{y}.
+\end{equation}
 
 \end{document}
