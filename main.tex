@@ -1,0 +1,49 @@
+\documentclass[pdflatex,ja=standard]{bxjsarticle}
+
+% Language setting
+% Replace `english' with e.g. `spanish' to change the document language
+\usepackage[japanese]{babel}
+
+% Set page size and margins
+% Replace `letterpaper' with`a4paper' for UK/EU standard size
+\usepackage[letterpaper,top=2cm,bottom=2cm,left=3cm,right=3cm,marginparwidth=1.75cm]{geometry}
+\usepackage{latexsym}
+
+% Useful packages
+\usepackage{amsmath}
+\usepackage{graphicx}
+\usepackage[colorlinks=true, allcolors=blue]{hyperref}
+\usepackage{amsthm}
+
+\renewcommand{\proofname}{\textbf{解答}}
+
+\title{『多変量解析入門』　演習問題}
+\author{Taro Masuda}
+
+\begin{document}
+\maketitle
+
+\section{はじめに}
+このPDFでは，小西貞則 著『多変量解析入門　線形から非線形へ』(岩波書店，2010)の解答を記していきます．
+公式なものではなくあくまで個人として公開しているため，誤りがある可能性があります．正確性についての保証はできない旨，予めご了承ください．
+
+\section{第2章}
+
+\subsection{問2.1}
+
+\begin{proof}
+\begin{equation}
+\frac{\partial S(\beta_{0}, \beta_{1})}{\partial \beta_{0}} =  \sum_{i=1}^{n} 2 \{ y_i - ( \beta_0 + \beta_1 x_i )  \} \dot (-1) .
+\end{equation}
+これを0とおくと
+\begin{equation}
+\sum_{i=1}^{n} y_i = n \beta_0 + \beta_1 \sum_{i=1}^{n} x_i. 
+\end{equation}
+同様に$\beta_1$ でも微分して0とおくと
+\begin{equation}
+\frac{\partial S(\beta_{0}, \beta_{1})}{\partial \beta_{1}} =  \sum_{i=1}^{n} 2 \{ y_i - ( \beta_0 + \beta_1 x_i )  \} \dot (-x_i) = 0
+\iff \sum_{i=1}^{n} x_i y_i =  \beta_0 \sum_{i=1}^{n} x_i + \beta_1 \sum_{i=1}^{n} x_i^2.
+\end{equation}
+\end{proof}
+
+\end{document}
