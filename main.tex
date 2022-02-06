@@ -35,7 +35,7 @@
 
 \begin{proof}
 \begin{equation}
-\frac{\partial S(\beta_{0}, \beta_{1})}{\partial \beta_{0}} =  \sum_{i=1}^{n} 2 \{ y_i - ( \beta_0 + \beta_1 x_i )  \} \dot (-1) .
+\frac{\partial S(\beta_{0}, \beta_{1})}{\partial \beta_{0}} =  \sum_{i=1}^{n} 2 \{ y_i - ( \beta_0 + \beta_1 x_i )  \}  (-1) .
 \end{equation}
 これを0とおくと
 \begin{equation}
@@ -43,7 +43,7 @@
 \end{equation}
 同様に$\beta_1$ でも微分して0とおくと
 \begin{equation}
-\frac{\partial S(\beta_{0}, \beta_{1})}{\partial \beta_{1}} =  \sum_{i=1}^{n} 2 \{ y_i - ( \beta_0 + \beta_1 x_i )  \} \dot (-x_i) = 0
+\frac{\partial S(\beta_{0}, \beta_{1})}{\partial \beta_{1}} =  \sum_{i=1}^{n} 2 \{ y_i - ( \beta_0 + \beta_1 x_i )  \} (-x_i) = 0
 \iff \sum_{i=1}^{n} x_i y_i =  \beta_0 \sum_{i=1}^{n} x_i + \beta_1 \sum_{i=1}^{n} x_i^2.
 \end{equation}
 \end{proof}
@@ -57,6 +57,7 @@ S(\bm{\beta}) = \bm{\varepsilon}^{\mathsf{T}} \bm{\varepsilon} = (\bm{y} - X \bm
 \begin{equation}
 - 2 X^{\mathsf{T}} \bm{y} + 2 X^{\mathsf{T}}X \bm{\beta} = \bm{0}. 
 \end{equation}
+これを解いて，　$\hat{\bm{\beta}}_{\rm{LMS}} = (X^{\mathsf{T}} X)^{-1} X^{\mathsf{T}} \bm{y}$　を得る．
 
 \subsection{問2.3}
 尤度関数は
@@ -70,7 +71,15 @@ L(\bm{\beta}, \sigma^2) = \frac{1}{(2 \pi \sigma^2)^{n/2}} \exp \left[ -\frac{1}
 これを$\bm{\beta}$について微分すると
 \begin{equation}
 - 2 X^{\mathsf{T}} \bm{y} + 2 X^{\mathsf{T}}X \bm{\beta} = \bm{0}
-\iff \hat{\bm{\beta}} = (X^{\mathsf{T}} X)^{-1} X^{\mathsf{T}} \bm{y}.
+\iff \hat{\bm{\beta}}_{\rm{ML}} = (X^{\mathsf{T}} X)^{-1} X^{\mathsf{T}} \bm{y}.
 \end{equation}
+同様に，$\sigma^2$について微分すると
+\begin{equation}
+- \frac{n}{2} \frac{1}{2 \pi \sigma^2}  2 \pi + \frac{1}{2 (\sigma^2)^2} (\bm{y} - X \bm{\beta})^{\mathsf{T}} (\bm{y} - X \bm{\beta})
+\iff \hat{\sigma}^2 = \frac{1}{n} (\bm{y} - X \bm{\beta})^{\mathsf{T}} (\bm{y} - X \bm{\beta}).
+\end{equation}
+
+\subsection{問2.4}
+問2.2, 問2.3より $\hat{\bm{\beta}}_{\rm{LMS}} = \hat{\bm{\beta}}_{\rm{ML}}$. 
 
 \end{document}
