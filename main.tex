@@ -16,6 +16,7 @@
 \usepackage[colorlinks=true, allcolors=blue]{hyperref}
 \usepackage{amsthm}
 \usepackage{bm}
+\usepackage{amssymb}
 
 
 \title{『多変量解析入門』　演習問題　解答}
@@ -84,5 +85,33 @@ L(\bm{\beta}, \sigma^2) = \frac{1}{(2 \pi \sigma^2)^{n/2}} \exp \left[ -\frac{1}
 
 \subsection{問2.4}
 問2.2, 問2.3より $\hat{\bm{\beta}}_{\rm{LMS}} = \hat{\bm{\beta}}_{\rm{ML}}$. 
+
+\subsection{問2.5}
+\begin{proof}
+\begin{equation}
+\frac{\partial (\bm{c}^{\mathsf{T}} \bm{\beta})}{\partial \bm{\beta}} = \frac{\partial }{\partial \bm{\beta}} \left( \sum_{i=1}^{p+1} c_i \beta_i \right).
+\end{equation}
+これを$j$番目の成分ごとに表示すると
+\begin{equation}
+\frac{\partial }{\partial \beta_j} \left( \sum_{i=1}^{p+1} c_i \beta_i \right) = c_j.
+\end{equation}
+\begin{equation}
+\therefore \frac{\partial (\bm{c}^{\mathsf{T}} \bm{\beta})}{\partial \bm{\beta}} = \bm{c}.
+\end{equation}
+\end{proof}
+
+\begin{proof}
+\begin{equation}
+\bm{\beta}^{\mathsf{T}} A \bm{\beta} =  \sum_{i=1}^{p+1} \beta_i \sum_{k=1}^{p+1} a_{ik} \beta_k
+\end{equation}
+と表せるので，
+\begin{equation}
+\frac{\partial}{\partial \beta_l} \left( \bm{\beta}^{\mathsf{T}} A \bm{\beta} \right) = \sum_{k \neq l} a_{lk} \beta_k + \sum_{i \neq l} a_{il} \beta_i + 2 a_{ll} \beta_l
+\end{equation}
+\begin{equation}
+= \sum_{k=1}^{p+1} (a_{lk} + a_{kl}) \beta_k
+\end{equation}
+これは$(A + A^{\mathsf{T}}) \bm{\beta}$の第$l$成分に等しい．
+\end{proof}
 
 \end{document}
