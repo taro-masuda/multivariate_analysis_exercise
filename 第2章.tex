@@ -153,4 +153,16 @@ P^2 = X (X^{\mathsf{T}} X )^{-1} X^{\mathsf{T}} X (X^{\mathsf{T}} X )^{-1} X^{\m
 \end{equation}
 \end{proof}
 
+\subsection{問2.8}
+\begin{proof}
+AICの定義は -2 (最大対数尤度) + 2 (自由パラメタの数)
+\begin{equation}
+= -2 \left( - \frac{n}{2} \log (2 \pi \hat{\sigma}^2) - \frac{1}{2 \hat{\sigma}^2} (\bm{y} - X \bm{\beta})^{\mathsf{T}} (\bm{y} - X \bm{\beta}) \right)
+\end{equation}
+問2.3より$\sigma$の最尤推定量は$\hat{\sigma}^2 = \frac{1}{n} (\bm{y} - X \bm{\beta})^{\mathsf{T}} (\bm{y} - X \bm{\beta})$であることと，自由なパラメタの数は$\bm{\beta}$の次元$p+1$個と誤差分散$\hat{\sigma}^2$の合計$p+2$個なので
+\begin{equation}
+{\rm AIC} = n \log (2 \pi \hat{\sigma}^2) + n + 2(p + 2).
+\end{equation}
+\end{proof}
+
 \end{document}
