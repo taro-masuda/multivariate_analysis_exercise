@@ -19,7 +19,7 @@
 \usepackage{amssymb}
 
 
-\title{『多変量解析入門』　演習問題　解答}
+\title{『多変量解析入門』　演習問題　解答　第2章}
 \author{Taro Masuda \\ Twitter ID: @ml\_taro}
 
 \begin{document}
@@ -134,5 +134,23 @@ E[(\bm{Z} - E[\bm{Z}])(\bm{Z} - E[\bm{Z}])^{\mathsf{T}}]] = E[(\bm{c} + A\bm{Y})
 
 \end{proof}
 
+\subsection{問2.7}
+\begin{proof}
+\begin{equation}
+P^2 = X (X^{\mathsf{T}} X )^{-1} X^{\mathsf{T}} X (X^{\mathsf{T}} X )^{-1} X^{\mathsf{T}}
+\end{equation}
+\begin{equation}
+= X (X^{\mathsf{T}} X )^{-1} X^{\mathsf{T}} = P.
+\end{equation}
+\end{proof}
+
+\begin{proof}
+\begin{equation}
+(I_n - P)^2 = (I_n - P) (I_n - P)
+\end{equation}
+\begin{equation}
+= I_n - P - P + P^2 = I_n - 2P + P = I_n - P.
+\end{equation}
+\end{proof}
 
 \end{document}
