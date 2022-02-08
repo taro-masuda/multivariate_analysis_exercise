@@ -114,4 +114,25 @@ L(\bm{\beta}, \sigma^2) = \frac{1}{(2 \pi \sigma^2)^{n/2}} \exp \left[ -\frac{1}
 これは$(A + A^{\mathsf{T}}) \bm{\beta}$の第$l$成分に等しい．
 \end{proof}
 
+\subsection{問2.6}
+\begin{proof}
+\begin{equation}
+E[\bm{Z}] = E[\bm{c} + A \bm{Y}] = E[\bm{c}] + E[A\bm{Y}] = \bm{c} + A E[\bm{Y}].
+\end{equation}
+\end{proof}
+
+\begin{proof}
+\begin{equation}
+E[(\bm{Z} - E[\bm{Z}])(\bm{Z} - E[\bm{Z}])^{\mathsf{T}}]] = E[(\bm{c} + A\bm{Y})(\bm{c} + A\bm{Y})^{\mathsf{T}}] - (\bm{c} + A E[\bm{Y}])(\bm{c} + A E[\bm{Y}])^{\mathsf{T}}
+\end{equation}
+\begin{equation}
+= \bm{c} \bm{c}^{\mathsf{T}} + 2 \bm{c} E[\bm{Y}^{\mathsf{T}}] A^{\mathsf{T}} + A E[ \bm{Y} \bm{Y}^{\mathsf{T}}] A^{\mathsf{T}} - \bm{c} \bm{c}^{\mathsf{T}} - 2 \bm{c} E[\bm{Y}^{\mathsf{T}}] A^{\mathsf{T}} -  A E[ \bm{Y}] E[ \bm{Y}^{\mathsf{T}}] A^{\mathsf{T}} 
+\end{equation}
+\begin{equation}
+= A(E[\bm{Y}\bm{Y}^{\mathsf{T}}] - E[\bm{Y}]E[\bm{Y}^{\mathsf{T}}])A^{\mathsf{T}} = A {\rm cov} (\bm{Y}) A^{\mathsf{T}}.
+\end{equation}
+
+\end{proof}
+
+
 \end{document}
