@@ -97,4 +97,44 @@ $y_i=0$ なら
     = - \sum_{i=1}^{n} \pi_i (1 - \pi_i) \bm{x}_{i} \bm{x}_{i}^{\mathsf{T}}.
 \end{equation}
 
+\subsection*{問4.2}
+\subsubsection*{(1)}
+\begin{equation}
+    y = F(x) = \int_{-\infty}^{x} f(t) dt = \int_{-\infty}^{x} \beta_1 \exp(\beta_0 + \beta_1 t) \exp \left\{ - \exp (\beta_0 + \beta_1 t) \right\} dt
+\end{equation}
+\begin{equation}
+    = \left[ - \exp \left\{ - \exp(\beta_0 + \beta_1 t) \right\} \right]_{- \infty}^{x}
+    = 1 - \exp \left\{ - \exp (\beta_0 + \beta_1 x) \right\}.
+\end{equation}
+
+\subsubsection*{(2)}
+\begin{equation}
+    \lim_{x \rightarrow - \infty} F(x) = 1 - \exp(-0) = 1-1 = 0,
+\end{equation}
+\begin{equation}
+    \lim_{x \rightarrow \infty} F(x) = 1 - \lim_{x \rightarrow \infty} \exp(-\exp(\beta_0 + \beta_1 x)) = 1-0 = 1.
+\end{equation}
+また，$\beta_1 > 0$より任意の$x$について$f(x) > 0$であるから$F(x)$は単調増加関数である．
+
+\subsubsection*{(3)}
+\begin{equation}
+    y = 1 - \exp \left\{ - \exp(g(y)) \right\}.
+\end{equation}
+\begin{equation}
+    \therefore \log (1-y) = - \exp(g(y)).
+\end{equation}
+\begin{equation}
+    \therefore g(y) = \log \{ - \log (1-y) \}.
+\end{equation}
+
+\subsection*{問4.3}
+\begin{equation}
+    \Phi^{-1} (y) = \frac{x-\mu}{\sigma} = - \frac{\mu}{\sigma} + \frac{1}{\sigma} x
+\end{equation}
+となるので，$\beta_0 = - \frac{\mu}{\sigma}$, $\beta_1 = \frac{1}{\sigma}$とおくと，
+\begin{equation}
+    \Phi^{-1} (y) = \beta_0 + \beta_1 x.
+\end{equation}
+
+
 \end{document}
