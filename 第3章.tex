@@ -35,7 +35,22 @@
 
 \section*{第3章}
 
-
+\subsection*{問3.1}
+3次スプラインの条件は，節点で2つの3次多項式の1次，2次導関数が連続になることだから，まず$x - t_2 > 0$の領域で微分して
+\begin{equation}
+\frac{\partial u(x; \bm{\theta})}{\partial x} |_{x \searrow t_2} = \beta_1 + 2 \beta_2 x + 3 \beta_3 x^2 + 3 \theta_1 (t_2 - t_1)^2 + 3 \theta_2 \cdot 0^2 - 3 \theta_3 (t_2 - t_3)^2.
+\end{equation}
+\begin{equation}
+\frac{\partial^2 u(x; \bm{\theta})}{\partial x^2} |_{x \searrow t_2} = 2\beta_2 + 6 \beta_3 x + 6 \theta_1 (t_2 - t_1) + 6 \theta_2 \cdot 0^2 - 6 \theta_3 (t_2 - t_3)
+\end{equation}
+同様に$x - t_2 < 0$の場合も求めていくと
+\begin{equation}
+\frac{\partial u(x; \bm{\theta})}{\partial x} |_{x \nearrow t_2} = \beta_1 + 2 \beta_2 x + 3 \beta_3 x^2 + 3 \theta_1 (t_2 - t_1)^2 - 3 \theta_2 \cdot 0^2 - 3 \theta_3 (t_2 - t_3)^2 = \frac{\partial u(x; \bm{\theta})}{\partial x} |_{x \searrow t_2}.
+\end{equation}
+\begin{equation}
+\frac{\partial^2 u(x; \bm{\theta})}{\partial x^2} |_{x \nearrow t_2} = 2\beta_2 + 6 \beta_3 x + 6 \theta_1 (t_2 - t_1) - 6 \theta_2 \cdot 0^2 - 6 \theta_3 (t_2 - t_3) = \frac{\partial^2 u(x; \bm{\theta})}{\partial x^2} |_{x \searrow t_2} .
+\end{equation}
+よって，1次，2次導関数がいずれも$t=t_2$で連続であることが示された．
 
 \subsection*{問3.3}
 誤差の2乗和$S(\bm{w}) = \bm{\varepsilon}^{\mathsf{T}} \bm{\varepsilon}$を最小化したいので，
