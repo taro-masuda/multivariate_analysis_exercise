@@ -1,0 +1,100 @@
+\documentclass[pdflatex,ja=standard]{bxjsarticle}
+
+% Language setting
+% Replace `english' with e.g. `spanish' to change the document language
+\usepackage[japanese]{babel}
+
+% Set page size and margins
+% Replace `letterpaper' with`a4paper' for UK/EU standard size
+\usepackage[letterpaper,top=2cm,bottom=2cm,left=3cm,right=3cm,marginparwidth=1.75cm]{geometry}
+\usepackage{latexsym}
+\usepackage{pxjahyper}
+
+% Useful packages
+\usepackage{amsmath}
+\usepackage{graphicx}
+\usepackage[colorlinks=true, allcolors=blue]{hyperref}
+\usepackage{amsthm}
+\usepackage{bm}
+\usepackage{amssymb}
+
+
+\title{『多変量解析入門』　演習問題　解答　第4章}
+\author{Taro Masuda \\ Twitter ID: @ml\_taro}
+
+\begin{document}
+\maketitle
+
+\section*{はじめに}
+このPDFでは，小西貞則 著『多変量解析入門　線形から非線形へ』(岩波書店，2010)の解答を記していきます．
+公式なものではなくあくまで個人として公開しているため，誤りがある可能性があります．正確性についての保証はできない旨，予めご了承ください．
+
+なお，著作権へ配慮し，問題文については割愛させていただきます．
+
+誤りを見つけた場合は，上記twitter ID \href{https://twitter.com/ml_taro}{@ml\_taro} までご連絡いただくか，直接PRを飛ばして頂くか，メール taro.masuda.jp あっとまーく gmail.com までご連絡ください．
+
+\section*{第4章}
+
+\subsection*{問4.1}
+\subsubsection*{(1)}
+\begin{equation}
+    \log \pi_i = \log \{ \exp (\beta_0 + \beta_1 x_i) \} - \log \{ 1 + \exp (\beta_0 + \beta_1 x_i) \}
+\end{equation}
+\begin{equation}
+    = \beta_0 + \beta_1 x_i - \log  \{1 + \exp (\beta_0 + \beta_1 x_i)  \}.
+\end{equation}
+また，
+\begin{equation}
+    \log (1 - \pi_i)  = \log \frac{1}{1 + \exp (\beta_0 + \beta_1 x_i)} = - \log \{1 + \exp (\beta_0 + \beta_1 x_i)  \}.
+\end{equation}
+\begin{equation}
+    \therefore \log \frac{\pi_i}{1 - \pi_i} = \log \pi_i - \log (1 - \pi_i) = \beta_0 + \beta_x x_i.
+\end{equation}
+
+\subsubsection*{(2)}
+・現象の構造を捉えるモデル＝ある事象が起こった（1）か起こらなかった（0）かの2値を出力データとして扱うモデル．
+
+・データの変動を捉える確率分布モデル＝ある現象（リスク）の起こりやすさについて，様々な要因（＝入力特徴量）の線型結合を用いて定量的に評価するモデル．
+
+\subsubsection*{(3)}
+$(x_i, y_i) \hspace{1mm} (1 \leq i \leq n)$の組がそれぞれ独立に生起したと仮定すると，尤度関数は単に１組ずつのデータから算出した尤度の積で計算できる．$i$番目の尤度は，$y_i=1$なら
+\begin{equation}
+    \frac{\exp( \beta_0 + \beta_1 x_i )}{1 + \exp( \beta_0 + \beta_1 x_i )},
+\end{equation}
+$y_i=0$ なら
+\begin{equation}
+    \frac{1}{1 + \exp( \beta_0 + \beta_1 x_i )}
+\end{equation}
+より，いずれの場合もまとめて
+\begin{equation}
+    \frac{\exp\left\{ y_i (\beta_0 + \beta_1 x_i ) \right\}}{1 + \exp( \beta_0 + \beta_1 x_i )}
+\end{equation}
+と記述できる．従って
+\begin{equation}
+    L(\beta_0, \beta_1) = \prod_{i=1}^{n} \frac{\exp\left\{ y_i (\beta_0 + \beta_1 x_i ) \right\}}{1 + \exp( \beta_0 + \beta_1 x_i )}.
+\end{equation}
+
+\subsubsection*{(4)}
+\begin{equation}
+    l(\bm{\beta}) = \log L(\bm{\beta}) = - \sum_{i=1}^{n} \log \left\{ 1 +  \exp(\beta_0 + \beta_1 x_i ) \right\} + \sum_{i=1}^{n} y_i (\beta_0 + \beta_1 x_i)
+\end{equation}
+\begin{equation}
+    = - \sum_{i=1}^{n} \log \left\{ 1 + \exp(\bm{\beta}^{\mathsf{T}} \bm{x}_i ) \right\} + \sum_{i=1}^{n} y_i (\bm{\beta}^{\mathsf{T}} \bm{x}_i ).
+\end{equation}
+
+\subsubsection*{(5)}
+\begin{equation}
+    \frac{\partial l(\bm{\beta})}{\partial \bm{\beta}} = - \sum_{i=1}^{n} \frac{ \exp(\bm{\beta}^{\mathsf{T}} \bm{x}_i ) \bm{x}_i}{ 1 +  \exp (\bm{\beta}^{\mathsf{T}} \bm{x}_i )} + \sum_{i=1}^{n} y_i x_i = \sum_{i=1}^{n} ( y_i - \pi_i ) \bm{x}_i.
+\end{equation}
+\begin{equation}
+    \frac{\partial^2 l(\bm{\beta})}{\partial \bm{\beta} \partial \bm{\beta}^{\mathsf{T}}} = - \sum_{i=1}^{n} \bm{x}_i \frac{\partial}{\partial \bm{\beta}^{\mathsf{T}}} \frac{ \exp(\bm{\beta}^{\mathsf{T}} \bm{x}_i ) }{ 1 +  \exp (\bm{\beta}^{\mathsf{T}} \bm{x}_i )} 
+\end{equation}
+\begin{equation}
+    = - \sum_{i=1}^{n} \bm{x}_i \left\{ \frac{ \exp(\bm{\beta}^{\mathsf{T}} \bm{x}_i ) \bm{x}_i^{\mathsf{T}} }{ 1 +  \exp (\bm{\beta}^{\mathsf{T}} \bm{x}_i )} -  \frac{ \exp(2\bm{\beta}^{\mathsf{T}} \bm{x}_i ) \bm{x}_i^{\mathsf{T}} }{ (1 +  \exp (\bm{\beta}^{\mathsf{T}} \bm{x}_i ))^2} \right\}
+\end{equation}
+\begin{equation}
+    = - \sum_{i=1}^{n} \left\{ \frac{ \bm{x}_i  \exp(\bm{\beta}^{\mathsf{T}} \bm{x}_i ) \bm{x}_i^{\mathsf{T}} }{ (1 +  \exp (\bm{\beta}^{\mathsf{T}} \bm{x}_i ))^2} \right\}
+    = - \sum_{i=1}^{n} \pi_i (1 - \pi_i) \bm{x}_{i} \bm{x}_{i}^{\mathsf{T}}.
+\end{equation}
+
+\end{document}
