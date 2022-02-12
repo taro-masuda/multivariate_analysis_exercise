@@ -48,6 +48,11 @@ S(\bm{w}) = \bm{\varepsilon}^{\mathsf{T}} \bm{\varepsilon} = (\bm{y} - B \bm{w})
 \end{equation}
 これを解いて，　$\hat{\bm{w}}_{\rm{LMS}} = (B^{\mathsf{T}} B)^{-1} B^{\mathsf{T}} \bm{y}$　を得る．
 
-
+\subsection*{問3.4}
+式(3.35)の尤度関数のうち，$\bm{w}$に依存する部分は
+\begin{equation}
+\exp \left\{ -\frac{1}{2\sigma^2} (\bm{y} - B \bm{w})^{\mathsf{T}} (\bm{y} - B \bm{w}) \right\}
+\end{equation}
+のみであるから，$(\bm{y} - B \bm{w})^{\mathsf{T}} (\bm{y} - B \bm{w})$を最小にする$\bm{w}$が最尤推定量となる．つまり，最小2乗推定量（問3.3の答え）$\hat{\bm{w}} = (B^{\mathsf{T}} B)^{-1} B^{\mathsf{T}} \bm{y}$と一致する．
 
 \end{document}
