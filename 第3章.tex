@@ -55,4 +55,21 @@ S(\bm{w}) = \bm{\varepsilon}^{\mathsf{T}} \bm{\varepsilon} = (\bm{y} - B \bm{w})
 \end{equation}
 のみであるから，$(\bm{y} - B \bm{w})^{\mathsf{T}} (\bm{y} - B \bm{w})$を最小にする$\bm{w}$が最尤推定量となる．つまり，最小2乗推定量（問3.3の答え）$\hat{\bm{w}} = (B^{\mathsf{T}} B)^{-1} B^{\mathsf{T}} \bm{y}$と一致する．
 
+\subsection*{問3.5}
+\begin{equation}
+\frac{\partial l_{\lambda} (\bm{\theta}) }{\partial \bm{w}} = - \frac{1}{2 \sigma^2} ( -2 B^{\mathsf{T}} \bm{y} + 2 B^{\mathsf{T}} B \bm{w}) - \lambda K \bm{w}.
+\end{equation}
+これを$\bm{0}$とおくと
+\begin{equation}
+\left( \frac{1}{\sigma^2} B^{\mathsf{T}} B + \lambda K \right) \bm{w} = \frac{1}{\sigma^2} B^{\mathsf{T}} \bm{y}
+\iff \hat{\bm{w}} = \left(B^{\mathsf{T}} B + \lambda \sigma^2  K \right)^{-1} B^{\mathsf{T}} \bm{y}.
+\end{equation}
+また，
+\begin{equation}
+\frac{\partial l_{\lambda} (\bm{\theta}) }{\partial (\sigma^2)} = - \frac{n}{2 \sigma^2} + \frac{1}{2 (\sigma^2)^2} (\bm{y} - B \bm{w})^{\mathsf{T}} (\bm{y} - B \bm{w}).
+\end{equation}
+これを0とおくと
+\begin{equation}
+\hat{\sigma}^2 = \frac{1}{n} (\bm{y} - B \hat{\bm{w}})^{\mathsf{T}} (\bm{y} - B \hat{\bm{w}}).
+\end{equation}
 \end{document}
