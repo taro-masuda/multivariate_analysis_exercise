@@ -72,4 +72,17 @@ S(\bm{w}) = \bm{\varepsilon}^{\mathsf{T}} \bm{\varepsilon} = (\bm{y} - B \bm{w})
 \begin{equation}
 \hat{\sigma}^2 = \frac{1}{n} (\bm{y} - B \hat{\bm{w}})^{\mathsf{T}} (\bm{y} - B \hat{\bm{w}}).
 \end{equation}
+
+\subsection*{問3.6}
+$\bm{w}$の正則化最小2乗推定量は，ペナルティ項を含めた
+\begin{equation}
+S_{\gamma} (\bm{w}) = (\bm{y} - B \bm{w})^{\mathsf{T}} (\bm{y} - B \bm{w}) + \gamma \bm{w}^{\mathsf{T}} K \bm{w}
+\end{equation}
+と表されるので，これを$\bm{w}$について微分して
+\begin{equation}
+\frac{\partial S_{\gamma} (\bm{w}) }{\partial \bm{w}} = -2 B^{\mathsf{T}} \bm{y} + 2 B^{\mathsf{T}} B \bm{w} + 2 \gamma K \bm{w} = \bm{0}
+\iff \hat{\bm{w}} = (B^{\mathsf{T}} B + \gamma K)^{-1} B^{\mathsf{T}} \bm{y}.
+\end{equation}
+ここで$\gamma = \lambda \sigma^2$とおけば，正則化最尤推定量（問3.5の解）に一致する．
+
 \end{document}
