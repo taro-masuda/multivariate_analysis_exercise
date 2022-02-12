@@ -85,4 +85,42 @@ S_{\gamma} (\bm{w}) = (\bm{y} - B \bm{w})^{\mathsf{T}} (\bm{y} - B \bm{w}) + \ga
 \end{equation}
 ここで$\gamma = \lambda \sigma^2$とおけば，正則化最尤推定量（問3.5の解）に一致する．
 
+\subsection*{問3.8}
+\begin{eqnarray}
+z_{ij} = x_{ij} - \Bar{x}_{ij}, \\
+\Bar{x}_j = \frac{1}{n} \sum_{i=1}^{n} x_{ij}, \\
+\beta^{*}_0 = \beta_0 + \beta_1 \Bar{x}_1 + \cdots + \beta_p \Bar{x}_p 
+\end{eqnarray}
+とおくと，
+\begin{equation}
+y_i = \beta_0 + \beta_1 \Bar{x}_1 + \cdots + \beta_p \Bar{x}_p + \beta_1 (x_{i1} - \Bar{x}_1) + \cdots + \beta_p (x_{ip} - \Bar{x}_p) + \varepsilon_i \\
+= \beta^{*}_0 + \beta_1 z_{i1} + \cdots + \beta_p z_{ip} + \varepsilon_i
+\end{equation}
+\begin{equation}
+\therefore \bm{y} = \beta^{*}_0 \bm{1} + Z \bm{\beta}_{1} + \bm{\varepsilon}.
+\end{equation}
+
+また，この2乗誤差と，$\beta_1$のノルム正則化誤差を最小化すれば良いので，目的関数は
+\begin{equation}
+S_{\gamma} (\beta^{*}_0, \bm{\beta}_1) = (\bm{y} - \beta^{*}_0 \bm{1} - Z \bm{\beta}_{1})^{\mathsf{T}} (\bm{y} - \beta^{*}_0 \bm{1} - Z \bm{\beta}_{1}) + \gamma \bm{\beta}_1^{\mathsf{T}} \bm{\beta}_1
+\end{equation}
+\begin{equation}
+= \bm{y}^{\mathsf{T}} \bm{y} + \beta^{*}_0^2 \bm{1}^{\mathsf{T}} \bm{1} + \bm{\beta}_1^{\mathsf{T}} Z^{\mathsf{T}} Z \bm{\beta}_1 - 2 \beta^{*}_0 (\bm{y} - Z \bm{\beta}_1)^{\mathsf{T}} \bm{1} -2 \bm{y}^{\mathsf{T}} Z \bm{\beta}_1 + \gamma \bm{\beta}_1^{\mathsf{T}} \bm{\beta}_1.
+\end{equation}
+$\bm{1}^{\mathsf{T}} \bm{1} = n$に注意すると，
+\begin{equation}
+\frac{\partial S_{\gamma}}{\partial \beta^{*}_0} = 2n\beta^{*}_0 - 2 \left( \sum_{i=1}^{n} y_i - (Z \bm{\beta}_1)^{\mathsf{T}} \bm{1} \right).
+\end{equation}
+これを0とおくと，$Z^{\mathsf{T}} \bm{1} = \bm{0}$ より
+\begin{equation}
+\hat{\beta}^{*}_0 = \frac{1}{n} \left( \sum_{i=1}^{n} y_i - \bm{\beta}_1^{\mathsf{T}} Z^{\mathsf{T}} \bm{1} \right) = \Bar{y}.
+\end{equation}
+また$\bm{\beta}_1$について微分して$\bm{0}$とおくと
+\begin{equation}
+\frac{\partial S_{\gamma}}{\partial \bm{\beta}_1} = 2 Z^{\mathsf{T}} Z \bm{\beta}_1 + 2 \beta^{*}_0 Z^{\mathsf{T}} \bm{1} - 2 Z^{\mathsf{T}} \bm{y} + 2 \gamma \bm{\beta}_1 = \bm{0}.
+\end{equation}
+\begin{equation}
+\therefore \hat{\bm{\beta}}_1 = (Z^{\mathsf{T}} Z + \gamma I_p)^{-1} Z^{\mathsf{T}} \bm{y}.
+\end{equation}
+
 \end{document}
