@@ -84,7 +84,7 @@ $y_i=0$ なら
 
 \subsubsection*{(5)}
 \begin{equation}
-    \frac{\partial l(\bm{\beta})}{\partial \bm{\beta}} = - \sum_{i=1}^{n} \frac{ \exp(\bm{\beta}^{\mathsf{T}} \bm{x}_i ) \bm{x}_i}{ 1 +  \exp (\bm{\beta}^{\mathsf{T}} \bm{x}_i )} + \sum_{i=1}^{n} y_i x_i = \sum_{i=1}^{n} ( y_i - \pi_i ) \bm{x}_i.
+    \frac{\partial l(\bm{\beta})}{\partial \bm{\beta}} = - \sum_{i=1}^{n} \frac{ \exp(\bm{\beta}^{\mathsf{T}} \bm{x}_i ) \bm{x}_i}{ 1 +  \exp (\bm{\beta}^{\mathsf{T}} \bm{x}_i )} + \sum_{i=1}^{n} y_i \bm{x}_i = \sum_{i=1}^{n} ( y_i - \pi_i ) \bm{x}_i.
 \end{equation}
 \begin{equation}
     \frac{\partial^2 l(\bm{\beta})}{\partial \bm{\beta} \partial \bm{\beta}^{\mathsf{T}}} = - \sum_{i=1}^{n} \bm{x}_i \frac{\partial}{\partial \bm{\beta}^{\mathsf{T}}} \frac{ \exp(\bm{\beta}^{\mathsf{T}} \bm{x}_i ) }{ 1 +  \exp (\bm{\beta}^{\mathsf{T}} \bm{x}_i )} 
